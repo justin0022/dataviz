@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@nivo/bar": "^0.52.0",
+    "@nivo/generators": "^0.52.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
