@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import classNames from 'classnames'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
 import Drawer from '@material-ui/core/Drawer'
@@ -79,13 +80,13 @@ const styles = theme => ({
   }
 })
 
-const App = () => {
+const App = ({ classes }) => {
   const [open, handleDrawer] = useState(true)
   return (
     <div>
       <CssBaseline />
-      <AppBar position='fixed'>
-        <Toolbar disableGutters={open}>
+      <AppBar position='fixed' className={classes.appBar}>
+        <Toolbar disableGutters={open} className={classNames(classes.appBar, open && classes.appBarShift)}>
           <IconButton
             color='inherit'
             aria-label='Open drawer'
@@ -95,7 +96,9 @@ const App = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer variant='permanent' open={open}>
+      <Drawer variant='permanent' open={open} classes={{
+        paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose)
+      }}>
         <div>
           <IconButton onClick={() => handleDrawer(!open)}>
             <ChevronLeftIcon />
