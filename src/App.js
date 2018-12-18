@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppBar from '@material-ui/core/AppBar'
 import Drawer from '@material-ui/core/Drawer'
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu'
+import IconButton from '@material-ui/core/IconButton'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import List from '@material-ui/core/List'
 import { withStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
 import Home from './containers/Home'
@@ -91,6 +95,25 @@ const App = () => {
         </Toolbar>
       </AppBar>
       <Drawer variant='permanent' open={open}>
+        <List>
+          <div>
+            <ListItem button>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Orders" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Customers" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Reports" />
+            </ListItem>
+            <ListItem button>
+              <ListItemText primary="Integrations" />
+            </ListItem>
+          </div>
+        </List>
       </Drawer>
       <Router>
         <div>
