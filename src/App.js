@@ -5,8 +5,9 @@ import Drawer from '@material-ui/core/Drawer'
 import MenuIcon from '@material-ui/icons/Menu'
 import IconButton from '@material-ui/core/IconButton'
 import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import Divider from '@material-ui/core/Divider'
 import List from '@material-ui/core/List'
 import { withStyles } from '@material-ui/core/styles'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -79,7 +80,7 @@ const styles = theme => ({
 })
 
 const App = () => {
-  let [open, handleDrawerOpen, handleDrawerClose] = useState('false')
+  const [open, handleDrawer] = useState(true)
   return (
     <div>
       <CssBaseline />
@@ -88,29 +89,35 @@ const App = () => {
           <IconButton
             color='inherit'
             aria-label='Open drawer'
-            onClick={() => handleDrawerOpen(open = true)}
+            onClick={() => handleDrawer(!open)}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer variant='permanent' open={open}>
+        <div>
+          <IconButton onClick={() => handleDrawer(!open)}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
+        <Divider />
         <List>
           <div>
             <ListItem button>
-              <ListItemText primary="Dashboard" />
+              <ListItemText primary='Dashboard' />
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Orders" />
+              <ListItemText primary='Orders' />
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Customers" />
+              <ListItemText primary='Customers' />
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Reports" />
+              <ListItemText primary='Reports' />
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Integrations" />
+              <ListItemText primary='Integrations' />
             </ListItem>
           </div>
         </List>
