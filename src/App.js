@@ -83,7 +83,7 @@ const styles = theme => ({
 const App = ({ classes }) => {
   const [open, handleDrawer] = useState(true)
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar position='fixed' className={classes.appBar}>
         <Toolbar disableGutters={open} className={classNames(classes.appBar, open && classes.appBarShift)}>
@@ -125,21 +125,6 @@ const App = ({ classes }) => {
           </div>
         </List>
       </Drawer>
-      <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/Charts'>Bar Chart</Link>
-            </li>
-          </ul>
-          <hr />
-          <Route exact path='/' component={Home} />
-          <Route path='/Charts' component={ChartsContainer} />
-        </div>
-      </Router>
     </div>
   )
 }
