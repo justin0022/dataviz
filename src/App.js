@@ -81,7 +81,7 @@ const styles = theme => ({
 })
 
 const App = ({ classes }) => {
-  const [open, handleDrawer] = useState(true)
+  const [open, setDrawer] = useState(true)
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -90,7 +90,7 @@ const App = ({ classes }) => {
           <IconButton
             color='inherit'
             aria-label='Open drawer'
-            onClick={() => handleDrawer(!open)}
+            onClick={() => setDrawer(!open)}
           >
             <MenuIcon />
           </IconButton>
@@ -100,7 +100,7 @@ const App = ({ classes }) => {
         paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose)
       }}>
         <div>
-          <IconButton onClick={() => handleDrawer(!open)}>
+          <IconButton onClick={() => setDrawer(!open)}>
             <ChevronLeftIcon />
           </IconButton>
         </div>
